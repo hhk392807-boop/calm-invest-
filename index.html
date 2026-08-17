@@ -1,248 +1,787 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infinity</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Infinity | منصة المحاكاة</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #070b16;
-      color: white;
-      min-height: 100vh;
-    }
+body{
+  font-family:Arial,Tahoma,sans-serif;
+  background:#070b18;
+  color:#fff;
+  min-height:100vh;
+}
 
-    nav {
-      width: 100%;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(7, 11, 22, 0.9);
-      position: relative;
-      z-index: 10;
-    }
+header{
+  background:linear-gradient(135deg,#101832,#24124d);
+  padding:22px 18px;
+  text-align:center;
+  border-bottom:1px solid #33265d;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #7c5cff;
-    }
+.logo{
+  font-size:30px;
+  font-weight:bold;
+  color:#8d63ff;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 25px;
-      font-size: 16px;
-    }
+.logo span{
+  color:#fff;
+}
 
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
-      background:
-        radial-gradient(circle at 50% 30%, #30206b 0%, #11152b 35%, #070b16 70%);
-    }
+nav{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
 
-    .hero-content {
-      max-width: 850px;
-    }
+nav button{
+  border:0;
+  background:#191f38;
+  color:#ddd;
+  padding:10px 15px;
+  border-radius:12px;
+  cursor:pointer;
+}
 
-    .infinity {
-      font-size: 100px;
-      line-height: 1;
-      color: #8b6cff;
-      text-shadow: 0 0 35px #7655ff;
-      margin-bottom: 20px;
-    }
+nav button:hover{
+  background:#7650ed;
+}
 
-    h1 {
-      font-size: clamp(45px, 8vw, 85px);
-      margin-bottom: 20px;
-    }
+.container{
+  width:min(1100px,94%);
+  margin:25px auto;
+}
 
-    h1 span {
-      color: #8b6cff;
-    }
+.hero{
+  background:
+    radial-gradient(circle at 50% 20%,#432487 0%,transparent 35%),
+    linear-gradient(145deg,#11172d,#090d1b);
+  border:1px solid #30245a;
+  border-radius:25px;
+  padding:50px 22px;
+  text-align:center;
+  box-shadow:0 15px 50px #0008;
+}
 
-    .hero p {
-      color: #b7bdd0;
-      font-size: 20px;
-      line-height: 1.8;
-      margin-bottom: 35px;
-    }
+.infinity{
+  font-size:75px;
+  color:#8b5cff;
+  text-shadow:0 0 35px #7846ff;
+}
 
-    .button {
-      display: inline-block;
-      padding: 15px 35px;
-      border-radius: 50px;
-      background: #7c5cff;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      box-shadow: 0 0 25px rgba(124, 92, 255, 0.45);
-      transition: 0.3s;
-    }
+.hero h1{
+  font-size:42px;
+  margin:15px 0;
+}
 
-    .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 35px rgba(124, 92, 255, 0.7);
-    }
+.hero h1 span{
+  color:#8d63ff;
+}
 
-    .features {
-      padding: 80px 7%;
-      text-align: center;
-      background: #0a0f1e;
-    }
+.hero p{
+  color:#b9bdd1;
+  line-height:1.9;
+  max-width:650px;
+  margin:auto;
+}
 
-    .features h2 {
-      font-size: 40px;
-      margin-bottom: 45px;
-    }
+.notice{
+  margin:20px 0;
+  padding:15px;
+  background:#241d0d;
+  border:1px solid #6b5420;
+  color:#f5d98a;
+  border-radius:14px;
+  line-height:1.7;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.section-title{
+  margin:40px 0 20px;
+  font-size:28px;
+}
 
-    .card {
-      background: #11182b;
-      border: 1px solid #252d46;
-      border-radius: 20px;
-      padding: 35px 25px;
-      transition: 0.3s;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #7c5cff;
-    }
+.card{
+  background:linear-gradient(145deg,#11182d,#0c1121);
+  border:1px solid #29234b;
+  border-radius:20px;
+  padding:24px;
+  transition:.2s;
+}
 
-    .card .icon {
-      font-size: 45px;
-      margin-bottom: 20px;
-    }
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#7650ed;
+}
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
+.card h3{
+  font-size:23px;
+  margin-bottom:12px;
+}
 
-    .card p {
-      color: #9da5bd;
-      line-height: 1.7;
-    }
+.price{
+  font-size:32px;
+  color:#9b72ff;
+  font-weight:bold;
+  margin:15px 0;
+}
 
-    footer {
-      padding: 30px;
-      text-align: center;
-      color: #777f98;
-      background: #070b16;
-      border-top: 1px solid #1b2235;
-    }
+.card p{
+  color:#aeb3c8;
+  line-height:1.8;
+}
 
-    @media (max-width: 600px) {
-      nav {
-        padding: 18px 5%;
-      }
+.btn{
+  width:100%;
+  border:0;
+  padding:13px;
+  margin-top:18px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#7045ee,#9b62ff);
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
 
-      nav a {
-        display: none;
-      }
+.btn:hover{
+  filter:brightness(1.15);
+}
 
-      .infinity {
-        font-size: 75px;
-      }
+.dashboard{
+  display:none;
+}
 
-      .hero p {
-        font-size: 17px;
-      }
-    }
-  </style>
+.panel{
+  background:#10162a;
+  border:1px solid #29234b;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:18px;
+}
+
+input{
+  width:100%;
+  padding:13px;
+  margin:8px 0 14px;
+  border-radius:10px;
+  border:1px solid #353052;
+  background:#080d1c;
+  color:#fff;
+  font-size:16px;
+}
+
+label{
+  color:#c8ccdb;
+}
+
+.admin-card{
+  background:#151b30;
+  border:1px solid #302952;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:15px;
+}
+
+.simulation{
+  display:none;
+}
+
+.result{
+  margin-top:15px;
+  padding:15px;
+  background:#0b1325;
+  border-radius:12px;
+  color:#cfd3e4;
+  line-height:1.9;
+}
+
+footer{
+  text-align:center;
+  color:#777d94;
+  padding:40px 15px;
+}
+
+.small{
+  color:#858ba2;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.badge{
+  display:inline-block;
+  background:#24194a;
+  color:#a982ff;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:32px;
+  }
+
+  .infinity{
+    font-size:60px;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<header>
+  <div class="logo">∞ <span>Infinity</span></div>
+
   <nav>
-    <div class="logo">∞ Infinity</div>
-
-    <div>
-      <a href="#home">الرئيسية</a>
-      <a href="#features">المميزات</a>
-    </div>
+    <button onclick="showHome()">الرئيسية</button>
+    <button onclick="showPlans()">الباقات</button>
+    <button onclick="showSimulation()">المحاكاة</button>
+    <button onclick="openOwner()">لوحة المالك</button>
   </nav>
+</header>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
+<main class="container">
 
-      <div class="infinity">∞</div>
+<section id="home">
 
-      <h1>
-        أهلاً بك في <span>Infinity</span>
-      </h1>
+  <div class="hero">
+    <div class="infinity">∞</div>
 
+    <h1>أهلاً بك في <span>Infinity</span></h1>
+
+    <p>
+      منصة عربية حديثة لاستعراض الباقات وتجربة
+      محاكاة العوائد بطريقة واضحة وشفافة.
+    </p>
+
+    <div class="notice">
+      ⚠️ هذه المنصة في وضع تجريبي.
+      جميع العوائد والأرقام المعروضة هي محاكاة تعليمية
+      وليست أرباحًا حقيقية أو مضمونة، ولا يوجد إيداع أو سحب أموال من هذه الصفحة.
+    </div>
+
+    <button class="btn" onclick="showPlans()">
+      استعرض الباقات
+    </button>
+  </div>
+
+  <h2 class="section-title">لماذا Infinity؟</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🎯 تجربة واضحة</h3>
       <p>
-        عالم بلا حدود، حيث تبدأ أفكارك وتستمر إلى ما لا نهاية.
-        اكتشف تجربة جديدة بتصميم عصري وسريع.
+        عرض الباقات والمعلومات بطريقة بسيطة ومناسبة للهاتف.
       </p>
-
-      <a href="#features" class="button">
-        اكتشف Infinity
-      </a>
-
     </div>
-  </section>
 
-  <section class="features" id="features">
-
-    <h2>لماذا Infinity؟</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">⚡</div>
-        <h3>سرعة</h3>
-        <p>
-          تجربة سريعة وخفيفة تعمل بشكل ممتاز على الهاتف والكمبيوتر.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">✨</div>
-        <h3>تصميم عصري</h3>
-        <p>
-          واجهة أنيقة وبسيطة تمنح موقعك مظهراً احترافياً.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🌐</div>
-        <h3>متاح للجميع</h3>
-        <p>
-          موقع متجاوب يعمل على مختلف أحجام الشاشات والأجهزة.
-        </p>
-      </div>
-
+    <div class="card">
+      <h3>📊 محاكاة</h3>
+      <p>
+        يمكنك تجربة حساب النتائج الافتراضية دون اعتبارها أرباحًا مالية حقيقية.
+      </p>
     </div>
-  </section>
 
-  <footer>
-    © 2026 Infinity — جميع الحقوق محفوظة
-  </footer>
+    <div class="card">
+      <h3>🛠️ تحكم المالك</h3>
+      <p>
+        لوحة إعدادات تجريبية لتغيير أسماء وأسعار الباقات.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="plans" style="display:none">
+
+  <h2 class="section-title">📦 الباقات</h2>
+
+  <div id="plansContainer" class="cards"></div>
+
+</section>
+
+
+<section id="simulation" class="simulation">
+
+  <h2 class="section-title">📊 محاكاة الباقة</h2>
+
+  <div class="panel">
+
+    <label>اختر الباقة</label>
+    <select id="simPlan"
+      style="width:100%;padding:13px;background:#080d1c;color:white;border:1px solid #353052;border-radius:10px;">
+    </select>
+
+    <label style="display:block;margin-top:15px;">
+      المبلغ الافتراضي
+    </label>
+
+    <input id="simAmount" type="number" value="100">
+
+    <button class="btn" onclick="calculateSimulation()">
+      احسب المحاكاة
+    </button>
+
+    <div id="simulationResult" class="result">
+      أدخل المبلغ واضغط على زر الحساب.
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="owner" class="dashboard">
+
+  <h2 class="section-title">🛠️ لوحة المالك</h2>
+
+  <div class="notice">
+    لوحة المالك هذه تعمل داخل المتصفح فقط.
+    لا تستخدمها لحفظ كلمات مرور أو بيانات مالية حقيقية.
+    الحماية الحقيقية تحتاج إلى خادم وقاعدة بيانات وتسجيل دخول آمن.
+  </div>
+
+  <div class="panel">
+
+    <h3>إعدادات المنصة</h3>
+
+    <label>اسم المنصة</label>
+    <input id="siteName">
+
+    <button class="btn" onclick="saveSiteName()">
+      حفظ اسم المنصة
+    </button>
+
+  </div>
+
+  <div class="panel">
+
+    <h3>إدارة الباقات</h3>
+
+    <div id="adminPlans"></div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  Infinity © 2026
+  <br>
+  <span class="small">
+    منصة تجريبية — لا تمثل خدمة استثمار أو ضمانًا للعوائد.
+  </span>
+</footer>
+
+
+<script>
+
+let plans = JSON.parse(localStorage.getItem("infinityPlans")) || [
+
+  {
+    name:"الباقة الأساسية",
+    price:100,
+    rate:2
+  },
+
+  {
+    name:"الباقة المتقدمة",
+    price:500,
+    rate:3
+  },
+
+  {
+    name:"الباقة الاحترافية",
+    price:1000,
+    rate:4
+  }
+
+];
+
+
+let siteName =
+localStorage.getItem("infinitySiteName") || "Infinity";
+
+
+function saveData(){
+
+  localStorage.setItem(
+    "infinityPlans",
+    JSON.stringify(plans)
+  );
+
+}
+
+
+function renderPlans(){
+
+  const box =
+  document.getElementById("plansContainer");
+
+  box.innerHTML="";
+
+  plans.forEach((p,index)=>{
+
+    box.innerHTML += `
+
+      <div class="card">
+
+        <span class="badge">
+          محاكاة
+        </span>
+
+        <h3>${escapeHTML(p.name)}</h3>
+
+        <div class="price">
+          ${Number(p.price).toLocaleString()}
+        </div>
+
+        <p>
+          نسبة المحاكاة اليومية:
+          <strong>${p.rate}%</strong>
+        </p>
+
+        <p class="small">
+          هذه النسبة افتراضية لأغراض التجربة فقط
+          وليست وعدًا بعائد مالي.
+        </p>
+
+        <button class="btn"
+          onclick="selectPlan(${index})">
+          تجربة المحاكاة
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+function renderAdmin(){
+
+  const box =
+  document.getElementById("adminPlans");
+
+  box.innerHTML="";
+
+  plans.forEach((p,index)=>{
+
+    box.innerHTML += `
+
+      <div class="admin-card">
+
+        <h3>الباقة ${index+1}</h3>
+
+        <label>اسم الباقة</label>
+
+        <input
+          id="name-${index}"
+          value="${escapeAttr(p.name)}">
+
+        <label>السعر الافتراضي</label>
+
+        <input
+          id="price-${index}"
+          type="number"
+          value="${p.price}">
+
+        <label>نسبة المحاكاة (%)</label>
+
+        <input
+          id="rate-${index}"
+          type="number"
+          step="0.1"
+          value="${p.rate}">
+
+        <button class="btn"
+          onclick="updatePlan(${index})">
+          حفظ الباقة
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+function updatePlan(index){
+
+  const name =
+  document.getElementById("name-"+index).value;
+
+  const price =
+  Number(document.getElementById("price-"+index).value);
+
+  const rate =
+  Number(document.getElementById("rate-"+index).value);
+
+  if(!name || price < 0 || rate < 0){
+
+    alert("تحقق من البيانات.");
+
+    return;
+  }
+
+  plans[index] = {
+    name:name,
+    price:price,
+    rate:rate
+  };
+
+  saveData();
+
+  renderPlans();
+
+  renderAdmin();
+
+  fillSimulation();
+
+  alert("تم حفظ الباقة.");
+
+}
+
+
+function fillSimulation(){
+
+  const select =
+  document.getElementById("simPlan");
+
+  select.innerHTML="";
+
+  plans.forEach((p,i)=>{
+
+    select.innerHTML +=
+      `<option value="${i}">
+        ${escapeHTML(p.name)}
+      </option>`;
+
+  });
+
+}
+
+
+function selectPlan(index){
+
+  showSimulation();
+
+  document.getElementById("simPlan").value=index;
+
+}
+
+
+function calculateSimulation(){
+
+  const index =
+  Number(document.getElementById("simPlan").value);
+
+  const amount =
+  Number(document.getElementById("simAmount").value);
+
+  const plan = plans[index];
+
+  if(!amount || amount <= 0){
+
+    alert("أدخل مبلغًا افتراضيًا صحيحًا.");
+
+    return;
+  }
+
+  const daily =
+  amount * (plan.rate / 100);
+
+  const monthly =
+  daily * 30;
+
+  document.getElementById(
+    "simulationResult"
+  ).innerHTML = `
+
+    <strong>${escapeHTML(plan.name)}</strong>
+
+    <br><br>
+
+    المبلغ الافتراضي:
+    ${amount.toLocaleString()}
+
+    <br>
+
+    نتيجة المحاكاة اليومية:
+    ${daily.toFixed(2)}
+
+    <br>
+
+    نتيجة المحاكاة لـ 30 يومًا:
+    ${monthly.toFixed(2)}
+
+    <hr style="border-color:#29234b">
+
+    <span class="small">
+      ⚠️ هذه أرقام حسابية افتراضية فقط،
+      وليست أموالًا أو أرباحًا حقيقية أو مضمونة.
+    </span>
+
+  `;
+
+}
+
+
+function saveSiteName(){
+
+  const value =
+  document.getElementById("siteName").value.trim();
+
+  if(!value){
+
+    alert("اكتب اسم المنصة.");
+
+    return;
+  }
+
+  siteName=value;
+
+  localStorage.setItem(
+    "infinitySiteName",
+    siteName
+  );
+
+  document.querySelector(".logo").innerHTML =
+    "∞ <span>"+escapeHTML(siteName)+"</span>";
+
+  alert("تم حفظ اسم المنصة.");
+
+}
+
+
+function openOwner(){
+
+  const password =
+  prompt("أدخل كلمة مرور لوحة المالك التجريبية:");
+
+  /*
+    ملاحظة:
+    هذه ليست حماية حقيقية لأن الصفحة تعمل بالكامل
+    في المتصفح. لا تضع كلمة مرور حساسة هنا.
+  */
+
+  if(password === "owner123"){
+
+    document.getElementById("home").style.display="none";
+    document.getElementById("plans").style.display="none";
+    document.getElementById("simulation").style.display="none";
+
+    document.getElementById("owner").style.display="block";
+
+    document.getElementById("siteName").value=siteName;
+
+    renderAdmin();
+
+  }else{
+
+    alert("كلمة المرور غير صحيحة.");
+
+  }
+
+}
+
+
+function showHome(){
+
+  hideAll();
+
+  document.getElementById("home").style.display="block";
+
+}
+
+
+function showPlans(){
+
+  hideAll();
+
+  document.getElementById("plans").style.display="block";
+
+}
+
+
+function showSimulation(){
+
+  hideAll();
+
+  document.getElementById("simulation").style.display="block";
+
+}
+
+
+function hideAll(){
+
+  document.getElementById("home").style.display="none";
+
+  document.getElementById("plans").style.display="none";
+
+  document.getElementById("simulation").style.display="none";
+
+  document.getElementById("owner").style.display="none";
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return escapeHTML(value);
+
+}
+
+
+document.querySelector(".logo").innerHTML =
+"∞ <span>"+escapeHTML(siteName)+"</span>";
+
+renderPlans();
+
+renderAdmin();
+
+fillSimulation();
+
+</script>
 
 </body>
 </html>
