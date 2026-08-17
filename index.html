@@ -1,1114 +1,165 @@
-```html
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Infinity | منصة المحاكاة</title>
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,Tahoma,sans-serif;
-  background:#07091a;
-  color:#fff;
-  min-height:100vh;
-}
-header{
-  background:linear-gradient(135deg,#15113b,#32166d,#11132e);
-  padding:22px 16px;
-  text-align:center;
-  border-bottom:1px solid #5d42b8;
-}
-.logo{
-  font-size:42px;
-  font-weight:900;
-  letter-spacing:-2px;
-}
-.logo span{color:#9a62ff}
-nav{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-button{
-  border:0;
-  border-radius:14px;
-  padding:13px 20px;
-  font-size:16px;
-  cursor:pointer;
-  color:#fff;
-  background:#251d4d;
-}
-button:hover{filter:brightness(1.15)}
-.primary{
-  background:linear-gradient(135deg,#713cff,#a35cff);
-}
-.danger{background:#8e263c}
-.success{background:#167c52}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:24px 15px 60px;
-}
-.hero{
-  margin-top:15px;
-  padding:45px 22px;
-  border:1px solid #5838a6;
-  border-radius:28px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 50% 20%,#4b2698 0,transparent 38%),
-    linear-gradient(145deg,#11152d,#0b0d20);
-  box-shadow:0 20px 70px #35128d33;
-}
-.infinity{
-  font-size:80px;
-  color:#9b5cff;
-  line-height:1;
-}
-.hero h1{
-  font-size:38px;
-  margin:20px 0 10px;
-}
-.hero p{
-  color:#c8c4da;
-  line-height:1.9;
-  font-size:18px;
-}
-.warning{
-  margin:25px auto;
-  max-width:800px;
-  background:#2a210d;
-  border:1px solid #8f6b1d;
-  color:#f5dc94;
-  padding:18px;
-  border-radius:18px;
-  line-height:1.8;
-}
-.section-title{
-  text-align:center;
-  margin:42px 0 20px;
-  font-size:29px;
-}
 .plans{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  padding:25px;
 }
-.card{
-  background:linear-gradient(145deg,#11152c,#15102d);
-  border:1px solid #3d2a70;
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 12px 35px #0005;
+
+.plan{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(139,92,246,.35);
+  border-radius:28px;
+  padding:0 22px 25px;
+  background:linear-gradient(145deg,#11182d,#171035);
+  box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
-.plan-img{
-  height:145px;
-  border-radius:18px;
+
+.plan-image{
+  height:190px;
+  margin:0 -22px 20px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:17px;
-  overflow:hidden;
-  background:linear-gradient(135deg,#241354,#5120a2);
+  background:
+    radial-gradient(circle at 50% 45%,rgba(139,92,246,.55),transparent 45%),
+    linear-gradient(135deg,#17113d,#0c1225);
 }
-.plan-img svg{width:125px;height:125px}
-.card h3{font-size:23px;margin-bottom:9px}
-.price{
-  font-size:30px;
-  color:#a970ff;
-  font-weight:bold;
-  margin:10px 0;
-}
-.info{
-  color:#bdb9cf;
-  line-height:1.8;
-  margin-bottom:15px;
-}
-.badge{
-  display:inline-block;
-  padding:5px 10px;
-  border-radius:20px;
-  background:#33225f;
-  color:#d9c8ff;
-  margin-bottom:10px;
-}
-.panel{
-  background:#0e1226;
-  border:1px solid #38265f;
-  border-radius:22px;
-  padding:22px;
-  margin-top:20px;
-}
-input,select,textarea{
-  width:100%;
-  padding:14px;
-  margin:7px 0 13px;
-  border-radius:12px;
-  border:1px solid #44356d;
-  background:#080b19;
-  color:white;
-  font-size:16px;
-  outline:none;
-}
-input:focus,textarea:focus{border-color:#9861ff}
-label{color:#c8c4d8}
-.form{
-  max-width:500px;
-  margin:25px auto;
-}
-.hidden{display:none!important}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:13px;
-}
-.stat{
-  background:#151934;
-  border:1px solid #392c61;
-  border-radius:17px;
-  padding:20px;
-  text-align:center;
-}
-.stat b{
-  display:block;
-  color:#a56aff;
-  font-size:28px;
-  margin-top:7px;
-}
-.userbox{
+
+.plan-icon{
+  width:115px;
+  height:115px;
+  border-radius:32px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  background:#11152d;
-  padding:14px;
-  border-radius:15px;
-  margin-bottom:20px;
+  justify-content:center;
+  font-size:58px;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  box-shadow:0 0 45px rgba(139,92,246,.55);
+  transform:rotate(-5deg);
 }
-.wallet{
-  background:#10152b;
-  border:1px dashed #7152bd;
-  border-radius:15px;
-  padding:17px;
-  word-break:break-all;
-  color:#d4c8ef;
+
+.plan:nth-child(2) .plan-icon{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
-.simulated{
-  color:#f0c96a;
-  font-size:13px;
+
+.plan:nth-child(3) .plan-icon{
+  background:linear-gradient(135deg,#f59e0b,#f97316);
 }
-footer{
-  text-align:center;
-  color:#858099;
-  padding:30px 15px;
-  border-top:1px solid #24203d;
+
+.plan h2{
+  color:white;
+  font-size:28px;
+  margin:10px 0;
+}
+
+.plan-price{
+  font-size:42px;
+  font-weight:bold;
+  color:#a78bfa;
+  margin:15px 0;
+}
+
+.plan-rate{
+  color:#c4b5fd;
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.plan-note{
+  color:#b8bfd3;
   line-height:1.8;
+  margin-bottom:22px;
 }
-@media(max-width:600px){
-  .logo{font-size:35px}
-  .hero h1{font-size:29px}
-  .hero{padding:32px 16px}
-  .infinity{font-size:65px}
+
+.plan button{
+  width:100%;
+  border:0;
+  border-radius:18px;
+  padding:16px;
+  font-size:20px;
+  color:white;
+  background:linear-gradient(90deg,#7c3aed,#a855f7);
+  cursor:pointer;
+}
+
+.plan button:hover{
+  opacity:.9;
 }
 </style>
-</head>
 
-<body>
+<section class="plans">
 
-<header>
-  <div class="logo">Infinity <span>∞</span></div>
-  <nav>
-    <button onclick="showPage('home')">الرئيسية</button>
-    <button onclick="showPage('plans')">الباقات</button>
-    <button onclick="showPage('login')">تسجيل الدخول</button>
-    <button onclick="showPage('account')">حسابي</button>
-    <button onclick="showPage('owner')">لوحة المالك</button>
-  </nav>
-</header>
-
-<main class="container">
-
-<!-- HOME -->
-<section id="home">
-  <div class="hero">
-    <div class="infinity">∞</div>
-    <h1>أهلًا بك في Infinity</h1>
-    <p>
-      منصة عربية تجريبية لاستعراض الباقات وتجربة
-      محاكاة الاشتراكات والعوائد بطريقة واضحة.
-    </p>
-
-    <div class="warning">
-      ⚠️ <b>تنبيه مهم:</b><br>
-      هذه المنصة نسخة تجريبية وتعليمية.
-      الأرصدة والعوائد المعروضة محاكاة فقط وليست أموالًا
-      أو أرباحًا حقيقية، ولا يوجد إيداع أو سحب حقيقي من هذه الصفحة.
+  <div class="plan">
+    <div class="plan-image">
+      <div class="plan-icon">🌱</div>
     </div>
 
-    <button class="primary" onclick="showPage('plans')">
-      استعرض الباقات
+    <h2>الباقة الأساسية</h2>
+
+    <div class="plan-price">100</div>
+
+    <div class="plan-rate">
+      نسبة المحاكاة اليومية: 2%
+    </div>
+
+    <div class="plan-note">
+      باقة تجريبية للمحاكاة والتعليم فقط.
+      الأرقام المعروضة افتراضية وليست أرباحًا حقيقية.
+    </div>
+
+    <button onclick="alert('هذه محاكاة تجريبية فقط')">
+      تجربة الباقة
     </button>
   </div>
-</section>
 
-<!-- PLANS -->
-<section id="plans" class="hidden">
-  <h2 class="section-title">الباقات</h2>
-  <div id="plansList" class="plans"></div>
-</section>
 
-<!-- LOGIN -->
-<section id="login" class="hidden">
-  <div class="panel form">
-    <h2 class="section-title">تسجيل الدخول</h2>
+  <div class="plan">
+    <div class="plan-image">
+      <div class="plan-icon">🚀</div>
+    </div>
 
-    <label>رقم الهاتف</label>
-    <input id="loginPhone" type="tel" placeholder="مثال: 07xxxxxxxx">
+    <h2>الباقة المتقدمة</h2>
 
-    <label>كلمة المرور</label>
-    <input id="loginPass" type="password" placeholder="كلمة المرور">
+    <div class="plan-price">500</div>
 
-    <button class="primary" style="width:100%" onclick="login()">
-      دخول
+    <div class="plan-rate">
+      نسبة المحاكاة اليومية: 3%
+    </div>
+
+    <div class="plan-note">
+      باقة محاكاة متقدمة لأغراض العرض والتعليم.
+      لا تمثل عائدًا ماليًا مضمونًا.
+    </div>
+
+    <button onclick="alert('هذه محاكاة تجريبية فقط')">
+      تجربة الباقة
     </button>
-
-    <p style="text-align:center;margin-top:18px;color:#aaa">
-      ليس لديك حساب؟
-      <button onclick="showPage('register')">إنشاء حساب</button>
-    </p>
-
-    <p id="loginMsg" style="margin-top:15px;text-align:center"></p>
   </div>
-</section>
 
-<!-- REGISTER -->
-<section id="register" class="hidden">
-  <div class="panel form">
-    <h2 class="section-title">إنشاء حساب</h2>
 
-    <label>رقم الهاتف</label>
-    <input id="regPhone" type="tel" placeholder="رقم الهاتف">
+  <div class="plan">
+    <div class="plan-image">
+      <div class="plan-icon">👑</div>
+    </div>
 
-    <label>كلمة المرور</label>
-    <input id="regPass" type="password" placeholder="كلمة المرور">
+    <h2>الباقة المميزة</h2>
 
-    <label>تأكيد كلمة المرور</label>
-    <input id="regPass2" type="password" placeholder="تأكيد كلمة المرور">
+    <div class="plan-price">1000</div>
 
-    <button class="primary" style="width:100%" onclick="register()">
-      إنشاء الحساب
+    <div class="plan-rate">
+      نسبة المحاكاة اليومية: 5%
+    </div>
+
+    <div class="plan-note">
+      باقة محاكاة مميزة لأغراض العرض والتعليم فقط.
+      لا توجد أرباح مالية حقيقية أو مضمونة.
+    </div>
+
+    <button onclick="alert('هذه محاكاة تجريبية فقط')">
+      تجربة الباقة
     </button>
-
-    <p id="regMsg" style="margin-top:15px;text-align:center"></p>
   </div>
+
 </section>
-
-<!-- ACCOUNT -->
-<section id="account" class="hidden">
-  <div id="accountContent"></div>
-</section>
-
-<!-- OWNER -->
-<section id="owner" class="hidden">
-  <div id="ownerContent"></div>
-</section>
-
-</main>
-
-<footer>
-  Infinity © 2026<br>
-  منصة تجريبية تعليمية — لا تمثل استثمارًا حقيقيًا ولا تضمن أرباحًا.
-</footer>
-
-<script>
-/* =========================
-   إعدادات الموقع
-========================= */
-
-let settings = JSON.parse(localStorage.getItem("infinitySettings")) || {
-  wallet:"ضع عنوان محفظتك هنا",
-  ownerPin:"2580"
-};
-
-let plans = JSON.parse(localStorage.getItem("infinityPlans")) || [
-  {
-    id:1,
-    name:"الباقة الأساسية",
-    price:10,
-    days:7,
-    daily:1,
-    type:"basic"
-  },
-  {
-    id:2,
-    name:"الباقة المتقدمة",
-    price:50,
-    days:15,
-    daily:2,
-    type:"pro"
-  },
-  {
-    id:3,
-    name:"الباقة المميزة",
-    price:100,
-    days:30,
-    daily:3,
-    type:"vip"
-  }
-];
-
-let currentUser = JSON.parse(localStorage.getItem("infinityCurrentUser")) || null;
-
-/* =========================
-   صور الباقات
-========================= */
-
-function planImage(type){
-
-  if(type==="basic"){
-    return `
-    <svg viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="70" fill="#6134c9"/>
-      <circle cx="100" cy="100" r="48" fill="#9b63ff"/>
-      <path d="M70 115 L100 65 L130 115 L100 100 Z"
-            fill="white"/>
-    </svg>`;
-  }
-
-  if(type==="pro"){
-    return `
-    <svg viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="72" fill="#254fc2"/>
-      <path d="M55 120 L80 75 L100 100 L130 55 L145 125 Z"
-            fill="#71a1ff"/>
-      <circle cx="80" cy="75" r="8" fill="white"/>
-      <circle cx="130" cy="55" r="8" fill="white"/>
-    </svg>`;
-  }
-
-  return `
-  <svg viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="74" fill="#6b3c16"/>
-    <path d="M100 45 L118 82 L160 88 L130 117
-             L137 158 L100 138 L63 158 L70 117
-             L40 88 L82 82 Z"
-          fill="#f2c45b"/>
-    <circle cx="100" cy="100" r="18" fill="#fff1a8"/>
-  </svg>`;
-}
-
-/* =========================
-   عرض الصفحات
-========================= */
-
-function showPage(page){
-
-  document.querySelectorAll("main section").forEach(s=>{
-    s.classList.add("hidden");
-  });
-
-  document.getElementById(page).classList.remove("hidden");
-
-  if(page==="plans") renderPlans();
-  if(page==="account") renderAccount();
-  if(page==="owner") renderOwner();
-}
-
-/* =========================
-   الباقات
-========================= */
-
-function renderPlans(){
-
-  const box=document.getElementById("plansList");
-
-  box.innerHTML=plans.map(p=>`
-    <div class="card">
-
-      <div class="plan-img">
-        ${planImage(p.type)}
-      </div>
-
-      <span class="badge">${p.days} أيام/يوم</span>
-
-      <h3>${escapeHTML(p.name)}</h3>
-
-      <div class="price">
-        ${p.price} USDT
-      </div>
-
-      <div class="info">
-        مدة المحاكاة: ${p.days} يوم<br>
-        المحاكاة اليومية: ${p.daily} USDT
-      </div>
-
-      <div class="simulated">
-        ⚠️ الأرقام محاكاة فقط
-      </div>
-
-      <br>
-
-      <button class="primary" style="width:100%"
-        onclick="subscribe(${p.id})">
-        اختيار الباقة
-      </button>
-
-    </div>
-  `).join("");
-}
-
-/* =========================
-   تسجيل الحساب
-========================= */
-
-function register(){
-
-  const phone=document.getElementById("regPhone").value.trim();
-  const pass=document.getElementById("regPass").value;
-  const pass2=document.getElementById("regPass2").value;
-  const msg=document.getElementById("regMsg");
-
-  if(phone.length<5){
-    msg.textContent="أدخل رقم هاتف صحيح.";
-    return;
-  }
-
-  if(pass.length<4){
-    msg.textContent="كلمة المرور قصيرة جدًا.";
-    return;
-  }
-
-  if(pass!==pass2){
-    msg.textContent="كلمتا المرور غير متطابقتين.";
-    return;
-  }
-
-  let users=JSON.parse(localStorage.getItem("infinityUsers")) || [];
-
-  if(users.some(u=>u.phone===phone)){
-    msg.textContent="هذا الرقم مسجل مسبقًا.";
-    return;
-  }
-
-  users.push({
-    phone,
-    pass,
-    balance:0,
-    subscription:null
-  });
-
-  localStorage.setItem("infinityUsers",JSON.stringify(users));
-
-  msg.style.color="#5be0a4";
-  msg.textContent="تم إنشاء الحساب. يمكنك تسجيل الدخول الآن.";
-
-  setTimeout(()=>showPage("login"),700);
-}
-
-/* =========================
-   الدخول
-========================= */
-
-function login(){
-
-  const phone=document.getElementById("loginPhone").value.trim();
-  const pass=document.getElementById("loginPass").value;
-  const msg=document.getElementById("loginMsg");
-
-  let users=JSON.parse(localStorage.getItem("infinityUsers")) || [];
-
-  const user=users.find(
-    u=>u.phone===phone && u.pass===pass
-  );
-
-  if(!user){
-    msg.style.color="#ff7777";
-    msg.textContent="رقم الهاتف أو كلمة المرور غير صحيحة.";
-    return;
-  }
-
-  currentUser=user;
-  localStorage.setItem(
-    "infinityCurrentUser",
-    JSON.stringify(user)
-  );
-
-  msg.style.color="#5be0a4";
-  msg.textContent="تم تسجيل الدخول.";
-
-  setTimeout(()=>showPage("account"),500);
-}
-
-/* =========================
-   الاشتراك التجريبي
-========================= */
-
-function subscribe(id){
-
-  if(!currentUser){
-    alert("سجل الدخول أولًا.");
-    showPage("login");
-    return;
-  }
-
-  const plan=plans.find(p=>p.id===id);
-
-  currentUser.subscription={
-    planId:plan.id,
-    name:plan.name,
-    price:plan.price,
-    days:plan.days,
-    daily:plan.daily,
-    start:Date.now()
-  };
-
-  saveCurrentUser();
-
-  alert(
-    "تم اختيار الباقة كمحاكاة.\n\n" +
-    "السعر: "+plan.price+" USDT\n" +
-    "العائد اليومي المعروض: "+plan.daily+" USDT\n\n" +
-    "هذه أرقام تجريبية وليست أرباحًا حقيقية."
-  );
-
-  showPage("account");
-}
-
-/* =========================
-   حساب المستخدم
-========================= */
-
-function renderAccount(){
-
-  const box=document.getElementById("accountContent");
-
-  if(!currentUser){
-    box.innerHTML=`
-      <div class="panel" style="text-align:center">
-        <h2>يجب تسجيل الدخول</h2>
-        <br>
-        <button class="primary" onclick="showPage('login')">
-          تسجيل الدخول
-        </button>
-      </div>
-    `;
-    return;
-  }
-
-  let sub=currentUser.subscription;
-
-  box.innerHTML=`
-    <div class="userbox">
-      <div>
-        👤 المستخدم: <b>${escapeHTML(currentUser.phone)}</b>
-      </div>
-
-      <button class="danger" onclick="logout()">
-        تسجيل الخروج
-      </button>
-    </div>
-
-    <div class="stats">
-
-      <div class="stat">
-        الرصيد التجريبي
-        <b>${Number(currentUser.balance||0).toFixed(2)}</b>
-      </div>
-
-      <div class="stat">
-        الحالة
-        <b style="font-size:20px">
-          ${sub ? "مشترك" : "بدون باقة"}
-        </b>
-      </div>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>الباقة الحالية</h2>
-
-      ${
-        sub ? `
-        <br>
-        <h3>${escapeHTML(sub.name)}</h3>
-        <p class="info">
-          السعر التجريبي: ${sub.price} USDT<br>
-          المدة: ${sub.days} يوم<br>
-          العائد اليومي المحاكى: ${sub.daily} USDT
-        </p>
-
-        <button class="success"
-          onclick="simulateDay()">
-          محاكاة إضافة يوم
-        </button>
-        ` :
-        `<p class="info">لم تختر أي باقة بعد.</p>
-         <button class="primary"
-           onclick="showPage('plans')">
-           عرض الباقات
-         </button>`
-      }
-
-    </div>
-
-    <div class="panel">
-
-      <h2>عنوان المحفظة</h2>
-
-      <p class="info">
-        استخدم هذا القسم فقط لعرض عنوان الدفع الذي يضعه
-        المالك. لا تتم معالجة أي دفعة حقيقية من هذه الصفحة.
-      </p>
-
-      <div class="wallet">
-        ${escapeHTML(settings.wallet)}
-      </div>
-
-    </div>
-  `;
-}
-
-/* =========================
-   محاكاة يوم
-========================= */
-
-function simulateDay(){
-
-  if(!currentUser || !currentUser.subscription){
-    alert("لا توجد باقة.");
-    return;
-  }
-
-  currentUser.balance =
-    Number(currentUser.balance||0) +
-    Number(currentUser.subscription.daily);
-
-  saveCurrentUser();
-
-  alert(
-    "تمت إضافة "+currentUser.subscription.daily+
-    " إلى الرصيد التجريبي.\n\n"+
-    "هذه محاكاة تعليمية فقط."
-  );
-
-  renderAccount();
-}
-
-/* =========================
-   لوحة المالك
-========================= */
-
-function renderOwner(){
-
-  const box=document.getElementById("ownerContent");
-
-  if(sessionStorage.getItem("infinityOwner")!=="yes"){
-
-    box.innerHTML=`
-      <div class="panel form">
-        <h2 class="section-title">👑 لوحة المالك</h2>
-
-        <label>رمز المالك التجريبي</label>
-
-        <input id="ownerPin"
-          type="password"
-          placeholder="أدخل الرمز">
-
-        <button class="primary"
-          style="width:100%"
-          onclick="ownerLogin()">
-          دخول لوحة المالك
-        </button>
-
-        <p class="simulated" style="margin-top:15px">
-          هذه حماية تجريبية للواجهة فقط.
-          لا تستخدمها لحماية أموال أو بيانات حقيقية.
-        </p>
-
-      </div>
-    `;
-
-    return;
-  }
-
-  box.innerHTML=`
-
-    <div class="panel">
-
-      <div class="userbox">
-        <h2>👑 لوحة تحكم المالك</h2>
-
-        <button class="danger"
-          onclick="ownerLogout()">
-          خروج
-        </button>
-      </div>
-
-      <div class="stats">
-
-        <div class="stat">
-          الباقات
-          <b>${plans.length}</b>
-        </div>
-
-        <div class="stat">
-          المستخدمون
-          <b>${getUsers().length}</b>
-        </div>
-
-        <div class="stat">
-          الاشتراكات
-          <b>${getUsers().filter(u=>u.subscription).length}</b>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>🏦 عنوان المحفظة</h2>
-
-      <label>عنوان المحفظة المعروض للمستخدمين</label>
-
-      <input id="walletInput"
-        value="${escapeAttr(settings.wallet)}">
-
-      <button class="success"
-        onclick="saveWallet()">
-        حفظ عنوان المحفظة
-      </button>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>➕ إضافة باقة</h2>
-
-      <input id="newName"
-        placeholder="اسم الباقة">
-
-      <input id="newPrice"
-        type="number"
-        placeholder="السعر">
-
-      <input id="newDays"
-        type="number"
-        placeholder="المدة بالأيام">
-
-      <input id="newDaily"
-        type="number"
-        placeholder="القيمة اليومية المحاكاة">
-
-      <select id="newType">
-        <option value="basic">أساسية</option>
-        <option value="pro">متقدمة</option>
-        <option value="vip">مميزة</option>
-      </select>
-
-      <button class="primary"
-        onclick="addPlan()">
-        إضافة الباقة
-      </button>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>📦 إدارة الباقات</h2>
-
-      <div id="adminPlans"></div>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>👥 المستخدمون</h2>
-
-      <div id="usersList"></div>
-
-    </div>
-  `;
-
-  renderAdminPlans();
-  renderUsers();
-}
-
-/* =========================
-   دخول المالك
-========================= */
-
-function ownerLogin(){
-
-  const pin=document.getElementById("ownerPin").value;
-
-  if(pin===settings.ownerPin){
-
-    sessionStorage.setItem("infinityOwner","yes");
-    renderOwner();
-
-  }else{
-    alert("رمز المالك غير صحيح.");
-  }
-}
-
-function ownerLogout(){
-  sessionStorage.removeItem("infinityOwner");
-  renderOwner();
-}
-
-/* =========================
-   إدارة الباقات
-========================= */
-
-function addPlan(){
-
-  const name=document.getElementById("newName").value.trim();
-  const price=Number(document.getElementById("newPrice").value);
-  const days=Number(document.getElementById("newDays").value);
-  const daily=Number(document.getElementById("newDaily").value);
-  const type=document.getElementById("newType").value;
-
-  if(!name || price<0 || days<1 || daily<0){
-    alert("أدخل بيانات صحيحة.");
-    return;
-  }
-
-  plans.push({
-    id:Date.now(),
-    name,
-    price,
-    days,
-    daily,
-    type
-  });
-
-  savePlans();
-
-  renderOwner();
-
-  alert("تمت إضافة الباقة.");
-}
-
-function renderAdminPlans(){
-
-  const box=document.getElementById("adminPlans");
-
-  box.innerHTML=plans.map(p=>`
-
-    <div class="card" style="margin-top:12px">
-
-      <h3>${escapeHTML(p.name)}</h3>
-
-      <label>الاسم</label>
-      <input id="name_${p.id}"
-        value="${escapeAttr(p.name)}">
-
-      <label>السعر</label>
-      <input id="price_${p.id}"
-        type="number"
-        value="${p.price}">
-
-      <label>المدة</label>
-      <input id="days_${p.id}"
-        type="number"
-        value="${p.days}">
-
-      <label>القيمة اليومية المحاكاة</label>
-      <input id="daily_${p.id}"
-        type="number"
-        value="${p.daily}">
-
-      <label>الصورة</label>
-      <select id="type_${p.id}">
-        <option value="basic" ${p.type==="basic"?"selected":""}>
-          أساسية
-        </option>
-        <option value="pro" ${p.type==="pro"?"selected":""}>
-          متقدمة
-        </option>
-        <option value="vip" ${p.type==="vip"?"selected":""}>
-          مميزة
-        </option>
-      </select>
-
-      <button class="success"
-        onclick="updatePlan(${p.id})">
-        حفظ التعديلات
-      </button>
-
-      <button class="danger"
-        onclick="deletePlan(${p.id})">
-        حذف الباقة
-      </button>
-
-    </div>
-
-  `).join("");
-}
-
-function updatePlan(id){
-
-  const p=plans.find(x=>x.id===id);
-
-  p.name=document.getElementById("name_"+id).value;
-  p.price=Number(document.getElementById("price_"+id).value);
-  p.days=Number(document.getElementById("days_"+id).value);
-  p.daily=Number(document.getElementById("daily_"+id).value);
-  p.type=document.getElementById("type_"+id).value;
-
-  savePlans();
-  renderOwner();
-
-  alert("تم حفظ الباقة.");
-}
-
-function deletePlan(id){
-
-  if(!confirm("هل تريد حذف هذه الباقة؟")) return;
-
-  plans=plans.filter(p=>p.id!==id);
-
-  savePlans();
-  renderOwner();
-}
-
-/* =========================
-   المستخدمون
-========================= */
-
-function renderUsers(){
-
-  const box=document.getElementById("usersList");
-  const users=getUsers();
-
-  if(!users.length){
-    box.innerHTML="<p class='info'>لا يوجد مستخدمون حتى الآن.</p>";
-    return;
-  }
-
-  box.innerHTML=users.map(u=>`
-
-    <div class="card" style="margin-top:12px">
-
-      <b>📱 ${escapeHTML(u.phone)}</b>
-
-      <p class="info">
-        الرصيد التجريبي:
-        ${Number(u.balance||0).toFixed(2)}
-        <br>
-        الباقة:
-        ${u.subscription ?
-          escapeHTML(u.subscription.name) :
-          "لا توجد"}
-      </p>
-
-    </div>
-
-  `).join("");
-}
-
-/* =========================
-   حفظ البيانات
-========================= */
-
-function getUsers(){
-  return JSON.parse(
-    localStorage.getItem("infinityUsers")
-  ) || [];
-}
-
-function savePlans(){
-  localStorage.setItem(
-    "infinityPlans",
-    JSON.stringify(plans)
-  );
-}
-
-function saveCurrentUser(){
-
-  let users=getUsers();
-
-  const index=users.findIndex(
-    u=>u.phone===currentUser.phone
-  );
-
-  if(index!==-1){
-    users[index]=currentUser;
-  }
-
-  localStorage.setItem(
-    "infinityUsers",
-    JSON.stringify(users)
-  );
-
-  localStorage.setItem(
-    "infinityCurrentUser",
-    JSON.stringify(currentUser)
-  );
-}
-
-function saveWallet(){
-
-  settings.wallet=
-    document.getElementById("walletInput").value.trim();
-
-  localStorage.setItem(
-    "infinitySettings",
-    JSON.stringify(settings)
-  );
-
-  alert("تم حفظ عنوان المحفظة.");
-}
-
-/* =========================
-   تسجيل الخروج
-========================= */
-
-function logout(){
-
-  currentUser=null;
-
-  localStorage.removeItem(
-    "infinityCurrentUser"
-  );
-
-  showPage("home");
-}
-
-/* =========================
-   حماية عرض النصوص
-========================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-function escapeAttr(value){
-  return escapeHTML(value);
-}
-
-/* =========================
-   تشغيل الموقع
-========================= */
-
-renderPlans();
-showPage("home");
-</script>
-
-</body>
-</html>
-```
-
